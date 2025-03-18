@@ -15,13 +15,13 @@ export const LinkViewer = ({
   handleEdit,
 }: LinkViewerProps) => {
   return (
-    <div className="feza:flex feza:items-center feza:gap-2 feza:p-2 feza:rounded-md feza:shadow-sm feza:border-input">
+    <div className="flex items-center gap-2 p-2 rounded-md shadow-sm border-fz-input">
       {link && (
         <a
           href={link}
           rel="noopener noreferrer"
           target="_blank"
-          className="feza:text-sm feza:underline feza:break-all"
+          className="text-sm underline break-all"
         >
           {truncateString({
             str: link,
@@ -33,11 +33,11 @@ export const LinkViewer = ({
       {link && (
         <Separator
           orientation="vertical"
-          className="feza:data-[orientation=vertical]:h-4"
+          className="data-[orientation=vertical]:h-4"
         />
       )}
 
-      <div className="feza:flex feza:items-center feza:flex-nowrap">
+      <div className="flex items-center flex-nowrap">
         <ActionButton
           icon={PenIcon}
           tooltip="Edit"

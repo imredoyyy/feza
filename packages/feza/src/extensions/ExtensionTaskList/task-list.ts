@@ -26,11 +26,11 @@ export const TaskList = TaskListExtension.extend<TaskListOptions>({
     return {
       ...this.parent?.(),
       HTMLAttributes: {
-        class: cn("not-prose feza:pl-2"),
+        class: cn("not-prose pl-2"),
       },
       taskItemOptions: {
         HTMLAttributes: {
-          class: cn("feza:flex feza:gap-2 feza:items-start feza:my-4"),
+          class: cn("flex gap-2 items-start my-4"),
         },
       },
       createToolbarButton: ({ editor }) => ({

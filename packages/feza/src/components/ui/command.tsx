@@ -21,7 +21,7 @@ function Command({
     <CommandPrimitive
       data-slot="command"
       className={cn(
-        "feza:bg-popover feza:text-popover-foreground feza:flex feza:h-full feza:w-full feza:flex-col feza:overflow-hidden feza:rounded-md",
+        "bg-fz-popover text-fz-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md",
         className
       )}
       {...props}
@@ -40,12 +40,12 @@ function CommandDialog({
 }) {
   return (
     <Dialog {...props}>
-      <DialogHeader className="feza:sr-only">
+      <DialogHeader className="sr-only">
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
-      <DialogContent className="feza:overflow-hidden feza:p-0">
-        <Command className="feza:[&_[cmdk-group-heading]]:text-muted-foreground feza:**:data-[slot=command-input-wrapper]:h-12 feza:[&_[cmdk-group-heading]]:px-2 feza:[&_[cmdk-group-heading]]:font-medium feza:[&_[cmdk-group]]:px-2 feza:[&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 feza:[&_[cmdk-input-wrapper]_svg]:h-5 feza:[&_[cmdk-input-wrapper]_svg]:w-5 feza:[&_[cmdk-input]]:h-12 feza:[&_[cmdk-item]]:px-2 feza:[&_[cmdk-item]]:py-3 feza:[&_[cmdk-item]_svg]:h-5 feza:[&_[cmdk-item]_svg]:w-5">
+      <DialogContent className="overflow-hidden p-0">
+        <Command className="[&_[cmdk-group-heading]]:text-fz-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
           {children}
         </Command>
       </DialogContent>
@@ -60,13 +60,13 @@ function CommandInput({
   return (
     <div
       data-slot="command-input-wrapper"
-      className="feza:flex feza:h-9 feza:items-center feza:gap-2 feza:border-b feza:px-3"
+      className="flex h-9 items-center gap-2 border-b px-3"
     >
-      <SearchIcon className="feza:size-4 feza:shrink-0 feza:opacity-50" />
+      <SearchIcon className="size-4 shrink-0 opacity-50" />
       <CommandPrimitive.Input
         data-slot="command-input"
         className={cn(
-          "feza:placeholder:text-muted-foreground feza:flex feza:h-10 feza:w-full feza:rounded-md feza:bg-transparent feza:py-3 feza:text-sm feza:outline-hidden feza:disabled:cursor-not-allowed feza:disabled:opacity-50",
+          "placeholder:text-fz-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
           className
         )}
         {...props}
@@ -83,7 +83,7 @@ function CommandList({
     <CommandPrimitive.List
       data-slot="command-list"
       className={cn(
-        "feza:max-h-[300px] feza:scroll-py-1 feza:overflow-x-hidden feza:overflow-y-auto",
+        "max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto",
         className
       )}
       {...props}
@@ -97,7 +97,7 @@ function CommandEmpty({
   return (
     <CommandPrimitive.Empty
       data-slot="command-empty"
-      className="feza:py-6 feza:text-center feza:text-sm"
+      className="py-6 text-center text-sm"
       {...props}
     />
   );
@@ -111,7 +111,7 @@ function CommandGroup({
     <CommandPrimitive.Group
       data-slot="command-group"
       className={cn(
-        "feza:text-foreground feza:[&_[cmdk-group-heading]]:text-muted-foreground feza:overflow-hidden feza:p-1 feza:[&_[cmdk-group-heading]]:px-2 feza:[&_[cmdk-group-heading]]:py-1.5 feza:[&_[cmdk-group-heading]]:text-xs feza:[&_[cmdk-group-heading]]:font-medium",
+        "text-fz-foreground [&_[cmdk-group-heading]]:text-fz-muted-foreground overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium",
         className
       )}
       {...props}
@@ -126,7 +126,7 @@ function CommandSeparator({
   return (
     <CommandPrimitive.Separator
       data-slot="command-separator"
-      className={cn("feza:bg-border feza:-mx-1 feza:h-px", className)}
+      className={cn("bg-fz-border -mx-1 h-px", className)}
       {...props}
     />
   );
@@ -140,7 +140,7 @@ function CommandItem({
     <CommandPrimitive.Item
       data-slot="command-item"
       className={cn(
-        "feza:data-[selected=true]:bg-accent feza:data-[selected=true]:text-accent-foreground feza:[&_svg:not([class*=text-])]:text-muted-foreground feza:relative feza:flex feza:cursor-default feza:items-center feza:gap-2 feza:rounded-sm feza:px-2 feza:py-1.5 feza:text-sm feza:outline-hidden feza:select-none feza:data-[disabled=true]:pointer-events-none feza:data-[disabled=true]:opacity-50 feza:[&_svg]:pointer-events-none feza:[&_svg]:shrink-0 feza:[&_svg:not([class*=size-])]:size-4",
+        "data-[selected=true]:bg-fz-accent data-[selected=true]:text-fz-accent-foreground [&_svg:not([class*=text-])]:text-fz-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4",
         className
       )}
       {...props}
@@ -156,7 +156,7 @@ function CommandShortcut({
     <span
       data-slot="command-shortcut"
       className={cn(
-        "feza:text-muted-foreground feza:ml-auto feza:text-xs feza:tracking-widest",
+        "text-fz-muted-foreground ml-auto text-xs tracking-widest",
         className
       )}
       {...props}

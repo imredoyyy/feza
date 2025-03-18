@@ -35,13 +35,13 @@ export const CodeBlockNodeView = ({
 
   return (
     <NodeViewWrapper>
-      <pre className="feza:relative" data-extension="code-block">
+      <pre className="relative" data-extension="code-block">
         {showLanguageDropdown && languages?.length > 0 && (
           <Select
             value={currentLanguage || "auto"}
             onValueChange={(value) => updateAttributes({ language: value })}
           >
-            <SelectTrigger className="feza:w-fit feza:max-w-36 feza:h-8 feza:absolute feza:top-2 feza:right-2 feza:border feza:rounded-md feza:shadow-sm">
+            <SelectTrigger className="w-fit max-w-36 h-8 absolute top-2 right-2 border rounded-md shadow-sm">
               <SelectValue placeholder="Code Language" />
             </SelectTrigger>
             <SelectContent>
@@ -55,7 +55,7 @@ export const CodeBlockNodeView = ({
           </Select>
         )}
 
-        <NodeViewContent className={`${languageClass} feza:block`} as="code" />
+        <NodeViewContent className={`${languageClass} block`} as="code" />
       </pre>
     </NodeViewWrapper>
   );

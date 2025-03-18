@@ -11,8 +11,10 @@ import { isFunction } from "@/utils/utils";
 export interface ToolbarComponentProps {
   /** The Tiptap editor instance */
   editor: Editor | null;
+
   /** Whether the toolbar should be disabled */
   disabled?: boolean;
+
   /** Custom toolbar rendering options */
   toolbar?: ToolbarProps;
 }
@@ -22,7 +24,6 @@ export interface ToolbarComponentProps {
  */
 const Toolbar = ({ editor, disabled, toolbar }: ToolbarComponentProps) => {
   const toolbarItems = React.useMemo(() => {
-    // Retrieve and sort extensions based on their order
     const sortedExtensions = [
       ...(editor?.extensionManager.extensions ?? []),
     ].sort((a, b) => (a.options.sort ?? -1) - (b.options.sort ?? -1));
@@ -45,7 +46,6 @@ const Toolbar = ({ editor, disabled, toolbar }: ToolbarComponentProps) => {
         continue;
       }
 
-      // Generate button configuration
       const buttons = createToolbarButton({ editor, extension });
 
       if (Array.isArray(buttons)) {
@@ -78,13 +78,13 @@ const Toolbar = ({ editor, disabled, toolbar }: ToolbarComponentProps) => {
   const containerWrapper = React.useCallback(
     (content: React.ReactNode) => (
       <div
-        className="feza:py-2 feza:px-1 feza:border-b feza:border-b-input feza:toolbar-container"
+        className="py-2 px-1 border-b border-b-input toolbar-container overflow-x-hidden"
         style={{
           pointerEvents: disabled ? "none" : "auto",
           opacity: disabled ? 0.5 : 1,
         }}
       >
-        <div className="feza:relative feza:flex feza:flex-wrap feza:h-auto feza:gap-1 feza:toolbar">
+        <div className="h-auto toolbar flex items-center gap-0.5 overflow-x-auto md:flex-wrap">
           {content}
         </div>
       </div>
@@ -99,13 +99,13 @@ const Toolbar = ({ editor, disabled, toolbar }: ToolbarComponentProps) => {
 
         return (
           <div
-            className="feza:flex feza:items-center"
+            className="flex items-center shrink-0"
             key={`toolbar-item-${index}`}
           >
             {item.showDividerBefore && (
               <Separator
                 orientation="vertical"
-                className="feza:data-[orientation=vertical]:h-4 feza:mx-2.5"
+                className="data-[orientation=vertical]:h-4 mx-2.5"
               />
             )}
 
@@ -117,7 +117,7 @@ const Toolbar = ({ editor, disabled, toolbar }: ToolbarComponentProps) => {
             {item.showDividerAfter && (
               <Separator
                 orientation="vertical"
-                className="feza:data-[orientation=vertical]:h-4 feza:mx-2.5"
+                className="data-[orientation=vertical]:h-4 mx-2.5"
               />
             )}
           </div>

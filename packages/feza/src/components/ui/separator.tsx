@@ -17,7 +17,7 @@ function Separator({
       decorative={decorative}
       orientation={orientation}
       className={cn(
-        "feza:bg-border feza:shrink-0 feza:data-[orientation=horizontal]:h-px feza:data-[orientation=horizontal]:w-full feza:data-[orientation=vertical]:h-full feza:data-[orientation=vertical]:w-px",
+        "bg-fz-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px",
         className
       )}
       {...props}

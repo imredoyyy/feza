@@ -83,14 +83,14 @@ export const HeadingSelector = ({
           title={activeItem?.title || "Default"}
           disabled={disabled}
           iconOnly={false}
-          className="feza:w-auto"
+          className="w-auto"
         >
-          <ChevronDownIcon className="feza:h-4 feza:w-4" />
+          <ChevronDownIcon className="h-4 w-4" />
         </ActionButton>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
-        className="feza:w-56 feza:border-border"
+        className="w-56 border-fz-border"
         style={{ maxHeight }}
       >
         {items?.map((item, idx) => (
@@ -98,9 +98,9 @@ export const HeadingSelector = ({
             <DropdownMenuCheckboxItem
               checked={activeItem === item}
               onClick={item.action}
-              className="feza:flex feza:items-center feza:gap-2"
+              className="flex items-center gap-2"
             >
-              <div className="feza:ml-1">{item.title}</div>
+              <div className="ml-1">{item.title}</div>
               {!!item.shortcutKeys?.length && (
                 <DropdownMenuShortcut>
                   {item.shortcutKeys

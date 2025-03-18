@@ -11,7 +11,7 @@ function Label({
     <LabelPrimitive.Root
       data-slot="label"
       className={cn(
-        "feza:flex feza:items-center feza:gap-2 feza:text-sm feza:leading-none feza:font-medium feza:select-none feza:group-data-[disabled=true]:pointer-events-none feza:group-data-[disabled=true]:opacity-50 feza:peer-disabled:cursor-not-allowed feza:peer-disabled:opacity-50",
+        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
         className
       )}
       {...props}

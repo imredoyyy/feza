@@ -156,7 +156,7 @@ export const StarterKit = Extension.create<StarterKitOptions>({
         Dropcursor.configure({
           ...this.options.dropCursor,
           width: 2,
-          class: "feza:border-input ProseMirror-dropcursor",
+          class: "border-fz-input ProseMirror-dropcursor",
         })
       );
 

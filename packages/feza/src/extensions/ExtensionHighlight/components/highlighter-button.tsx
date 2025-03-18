@@ -90,8 +90,8 @@ export const HighlighterButton = ({
   return (
     <div
       className={cn(
-        "feza:flex feza:items-center feza:justify-center feza:h-8 feza:relative feza:hover:bg-muted feza:p-2 feza:pl-0 feza:rounded-md feza:w-10",
-        isActive?.() && "feza:bg-accent"
+        "flex items-center justify-center h-8 relative hover:bg-fz-muted p-2 pl-0 rounded-md w-10",
+        isActive?.() && "bg-fz-accent"
       )}
     >
       <ActionButton
@@ -108,17 +108,15 @@ export const HighlighterButton = ({
         setSelectedColor={setColor}
         colors={colors}
         onColorChange={onColorChange}
-        className="feza:absolute feza:right-1 feza:top-1/2 feza:-translate-y-1/2"
+        className="absolute right-1 top-1/2 -translate-y-1/2"
       >
         <Button
           size="icon"
           variant="ghost"
           disabled={disabled}
-          className={cn(
-            "feza:h-8 feza:w-3 feza:bg-transparent feza:hover:bg-transparent"
-          )}
+          className={cn("h-8 w-3 bg-transparent hover:bg-transparent")}
         >
-          <ChevronDownIcon className="feza:size-4" />
+          <ChevronDownIcon className="size-4" />
         </Button>
       </ColorPicker>
     </div>

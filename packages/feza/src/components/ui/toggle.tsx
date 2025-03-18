@@ -5,18 +5,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const toggleVariants = cva(
-  "feza:inline-flex feza:items-center feza:justify-center feza:gap-2 feza:rounded-md feza:text-sm feza:font-medium feza:hover:bg-muted feza:hover:text-muted-foreground feza:disabled:pointer-events-none feza:disabled:opacity-50 feza:data-[state=on]:bg-accent feza:data-[state=on]:text-accent-foreground feza:[&_svg]:pointer-events-none feza:[&_svg:not([class*=size-])]:size-4 feza:[&_svg]:shrink-0 feza:focus-visible:border-ring feza:focus-visible:ring-ring/50 feza:focus-visible:ring-[3px] feza:outline-none feza:transition-[color,box-shadow] feza:aria-invalid:ring-destructive/20 feza:dark:aria-invalid:ring-destructive/40 feza:aria-invalid:border-destructive feza:whitespace-nowrap",
+  "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium hover:bg-fz-muted hover:text-fz-muted-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-fz-accent data-[state=on]:text-fz-accent-foreground [&_svg]:pointer-events-none [&_svg:not([class*=size-])]:size-4 [&_svg]:shrink-0 focus-visible:border-fz-ring focus-visible:ring-fz-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive whitespace-nowrap",
   {
     variants: {
       variant: {
-        default: "feza:bg-transparent",
+        default: "bg-transparent",
         outline:
-          "feza:border feza:border-input feza:bg-transparent feza:shadow-xs feza:hover:bg-accent feza:hover:text-accent-foreground",
+          "border border-fz-input bg-transparent shadow-xs hover:bg-fz-accent hover:text-fz-accent-foreground",
       },
       size: {
-        default: "feza:h-9 feza:px-2 feza:min-w-9",
-        sm: "feza:h-8 feza:px-1.5 feza:min-w-8",
-        lg: "feza:h-10 feza:px-2.5 feza:min-w-10",
+        default: "h-9 px-2 min-w-9",
+        sm: "h-8 px-1.5 min-w-8",
+        lg: "h-10 px-2.5 min-w-10",
       },
     },
     defaultVariants: {

@@ -75,7 +75,7 @@ export const TextAlignButton = ({
     };
   }, [items, editor]);
 
-  const toggleTextAlignPopover = (e: React.MouseEvent) => {
+  const toggleTextAlign = (e: React.MouseEvent) => {
     e.preventDefault();
     setOpen((prev) => !prev);
   };
@@ -86,8 +86,8 @@ export const TextAlignButton = ({
         <ActionButton
           icon={ButtonIcon}
           tooltip={tooltip || "Align"}
-          action={toggleTextAlignPopover}
-          className="feza:w-auto"
+          action={toggleTextAlign}
+          className="w-auto"
         >
           <div>
             <ChevronDownIcon />
@@ -96,7 +96,7 @@ export const TextAlignButton = ({
       </PopoverTrigger>
 
       <PopoverContent
-        className="feza:w-full feza:min-w-4 feza:p-1 feza:flex feza:flex-row feza:gap-1 feza:border-border"
+        className="w-full min-w-4 p-1 flex flex-row gap-1 border-fz-border"
         align="start"
         side="bottom"
       >
@@ -111,12 +111,12 @@ export const TextAlignButton = ({
                   pressed={activeItem === item}
                   data-state={activeItem === item ? "on" : "off"}
                 >
-                  {ItemIcon && <ItemIcon className="feza:size-4" />}
-                  <span className="feza:sr-only">{item.title}</span>
+                  {ItemIcon && <ItemIcon className="size-4" />}
+                  <span className="sr-only">{item.title}</span>
                 </Toggle>
               </TooltipTrigger>
 
-              <TooltipContent className="feza:flex feza:flex-col feza:items-center">
+              <TooltipContent className="flex flex-col items-center">
                 <span>{item.title}</span>
                 {!!item.shortcutKeys?.length && (
                   <span>

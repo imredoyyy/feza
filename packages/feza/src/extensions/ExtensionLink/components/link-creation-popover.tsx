@@ -56,7 +56,7 @@ export const LinkCreationPopover = ({
         hideWhenDetached
         align="start"
         side="bottom"
-        className="feza:w-full feza:border-border"
+        className="w-full border-fz-border"
         sideOffset={5}
       >
         <LinkEditor editor={editor} onLinkSave={onLinkSave} />

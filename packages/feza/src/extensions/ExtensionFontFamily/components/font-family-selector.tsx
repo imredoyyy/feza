@@ -95,7 +95,7 @@ export const FontFamilySelector = ({
             length: 9,
           })}
           iconOnly={false}
-          className="feza:w-[6.25rem] feza:capitalize"
+          className="w-[6.25rem] capitalize"
           style={{
             fontFamily,
           }}
@@ -103,7 +103,7 @@ export const FontFamilySelector = ({
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
-        className="feza:w-60 feza:border-border"
+        className="w-60 border-fz-border"
         style={{ maxHeight }}
       >
         {items.map((font, idx) => (
@@ -113,7 +113,7 @@ export const FontFamilySelector = ({
               onClick={font.action}
             >
               <div
-                className="feza:ml-1 feza:h-full feza:capitalize"
+                className="ml-1 h-full capitalize"
                 style={{
                   fontFamily: font.default ? "inherit" : font.font,
                 }}

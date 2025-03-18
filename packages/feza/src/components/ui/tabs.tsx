@@ -12,7 +12,7 @@ function Tabs({
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
-      className={cn("feza:flex feza:flex-col feza:gap-2", className)}
+      className={cn("flex flex-col gap-2", className)}
       {...props}
     />
   );
@@ -26,7 +26,7 @@ function TabsList({
     <TabsPrimitive.List
       data-slot="tabs-list"
       className={cn(
-        "feza:bg-muted feza:text-muted-foreground feza:inline-flex feza:h-9 feza:w-fit feza:items-center feza:justify-center feza:rounded-lg feza:p-1",
+        "bg-fz-muted text-fz-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-1",
         className
       )}
       {...props}
@@ -42,7 +42,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "feza:data-[state=active]:bg-background feza:data-[state=active]:text-foreground feza:focus-visible:border-ring feza:focus-visible:ring-ring/50 feza:focus-visible:outline-ring feza:inline-flex feza:items-center feza:justify-center feza:gap-1.5 feza:rounded-md feza:px-2 feza:py-1 feza:text-sm feza:font-medium feza:whitespace-nowrap feza:transition-[color,box-shadow] feza:focus-visible:ring-[3px] feza:focus-visible:outline-1 feza:disabled:pointer-events-none feza:disabled:opacity-50 feza:data-[state=active]:shadow-sm feza:[&_svg]:pointer-events-none feza:[&_svg]:shrink-0 feza:[&_svg:not([class*=size-])]:size-4",
+        "data-[state=active]:bg-fz-background data-[state=active]:text-fz-foreground focus-visible:border-fz-ring focus-visible:ring-fz-ring/50 focus-visible:outline-fz-ring inline-flex items-center justify-center gap-1.5 rounded-md px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4",
         className
       )}
       {...props}
@@ -57,7 +57,7 @@ function TabsContent({
   return (
     <TabsPrimitive.Content
       data-slot="tabs-content"
-      className={cn("feza:flex-1 feza:outline-none", className)}
+      className={cn("flex-1 outline-none", className)}
       {...props}
     />
   );

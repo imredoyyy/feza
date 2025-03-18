@@ -36,7 +36,7 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "feza:data-[state=open]:animate-in feza:data-[state=closed]:animate-out feza:data-[state=closed]:fade-out-0 feza:data-[state=open]:fade-in-0 feza:fixed feza:inset-0 feza:z-50 feza:bg-black/80",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/80",
         className
       )}
       {...props}
@@ -55,15 +55,15 @@ function DialogContent({
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          "feza:bg-background feza:data-[state=open]:animate-in feza:data-[state=closed]:animate-out feza:data-[state=closed]:fade-out-0 feza:data-[state=open]:fade-in-0 feza:data-[state=closed]:zoom-out-95 feza:data-[state=open]:zoom-in-95 feza:fixed feza:top-[50%] feza:left-[50%] feza:z-50 feza:grid feza:w-full feza:max-w-[calc(100%-2rem)] feza:translate-x-[-50%] feza:translate-y-[-50%] feza:gap-4 feza:rounded-lg feza:border feza:p-6 feza:shadow-lg feza:duration-200 feza:sm:max-w-lg",
+          "bg-fz-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg",
           className
         )}
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="feza:ring-offset-background feza:focus:ring-ring feza:data-[state=open]:bg-accent feza:data-[state=open]:text-muted-foreground feza:absolute feza:top-4 feza:right-4 feza:rounded-xs feza:opacity-70 feza:transition-opacity feza:hover:opacity-100 feza:focus:ring-2 feza:focus:ring-offset-2 feza:focus:outline-hidden feza:disabled:pointer-events-none feza:[&_svg]:pointer-events-none feza:[&_svg]:shrink-0 feza:[&_svg:not([class*=size-])]:size-4">
+        <DialogPrimitive.Close className="ring-offset-fz-background focus:ring-fz-ring data-[state=open]:bg-fz-accent data-[state=open]:text-fz-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4">
           <XIcon />
-          <span className="feza:sr-only">Close</span>
+          <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
       </DialogPrimitive.Content>
     </DialogPortal>
@@ -74,10 +74,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-header"
-      className={cn(
-        "feza:flex feza:flex-col feza:gap-2 feza:text-center feza:sm:text-left",
-        className
-      )}
+      className={cn("flex flex-col gap-2 text-center sm:text-left", className)}
       {...props}
     />
   );
@@ -88,7 +85,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="dialog-footer"
       className={cn(
-        "feza:flex feza:flex-col-reverse feza:gap-2 feza:sm:flex-row feza:sm:justify-end",
+        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
         className
       )}
       {...props}
@@ -103,10 +100,7 @@ function DialogTitle({
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
-      className={cn(
-        "feza:text-lg feza:leading-none feza:font-semibold",
-        className
-      )}
+      className={cn("text-lg leading-none font-semibold", className)}
       {...props}
     />
   );
@@ -119,7 +113,7 @@ function DialogDescription({
   return (
     <DialogPrimitive.Description
       data-slot="dialog-description"
-      className={cn("feza:text-muted-foreground feza:text-sm", className)}
+      className={cn("text-fz-muted-foreground text-sm", className)}
       {...props}
     />
   );

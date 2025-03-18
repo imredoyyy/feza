@@ -5,26 +5,26 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "feza:inline-flex feza:items-center feza:cursor-pointer feza:justify-center feza:gap-2 feza:whitespace-nowrap feza:rounded-md feza:text-sm feza:font-medium feza:transition-[color,box-shadow] feza:disabled:pointer-events-none feza:disabled:opacity-50 feza:[&_svg]:pointer-events-none feza:[&_svg:not([class*=size-])]:size-4 feza:shrink-0 feza:[&_svg]:shrink-0 feza:outline-none feza:focus-visible:border-ring feza:focus-visible:ring-ring/50 feza:focus-visible:ring-[3px] feza:aria-invalid:ring-destructive/20 feza:dark:aria-invalid:ring-destructive/40 feza:aria-invalid:border-destructive",
+  "inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*=size-])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-fz-ring focus-visible:ring-fz-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
         default:
-          "feza:bg-primary feza:text-primary-foreground feza:shadow-xs feza:hover:bg-primary/90",
+          "bg-fz-primary text-fz-primary-foreground shadow-xs hover:bg-fz-primary/90",
         destructive:
-          "feza:bg-destructive feza:text-white feza:shadow-xs feza:hover:bg-destructive/90 feza:focus-visible:ring-destructive/20 feza:dark:focus-visible:ring-destructive/40",
+          "bg-fz-destructive text-white shadow-xs hover:bg-fz-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
-          "feza:border feza:border-input feza:bg-background feza:shadow-xs feza:hover:bg-accent feza:hover:text-accent-foreground",
+          "border border-fz-input bg-fz-background shadow-xs hover:bg-fz-accent hover:text-fz-accent-foreground",
         secondary:
-          "feza:bg-secondary feza:text-secondary-foreground feza:shadow-xs feza:hover:bg-secondary/80",
-        ghost: "feza:hover:bg-accent feza:hover:text-accent-foreground",
-        link: "feza:text-primary feza:underline-offset-4 feza:hover:underline",
+          "bg-fz-secondary text-fz-secondary-foreground shadow-xs hover:bg-fz-secondary/80",
+        ghost: "hover:bg-fz-accent hover:text-fz-accent-foreground",
+        link: "text-fz-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "feza:h-9 feza:px-4 feza:py-2 feza:has-[>svg]:px-3",
-        sm: "feza:h-8 feza:rounded-md feza:gap-1.5 feza:px-3 feza:has-[>svg]:px-2.5",
-        lg: "feza:h-10 feza:rounded-md feza:px-6 feza:has-[>svg]:px-4",
-        icon: "feza:size-9",
+        default: "h-9 px-4 py-2 has-[>svg]:px-3",
+        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
+        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+        icon: "size-9",
       },
     },
     defaultVariants: {

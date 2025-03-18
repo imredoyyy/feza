@@ -225,7 +225,7 @@ export const ImageNodeView = ({
 
   return (
     <NodeViewWrapper
-      className={cn("image-view", inline ? "feza:mx-4 last:feza:ml-0" : "")}
+      className={cn("image-view", inline ? "mx-4 last:ml-0" : "")}
       style={
         {
           ...imageMaxStyle,
@@ -239,7 +239,7 @@ export const ImageNodeView = ({
         draggable
         data-drag-handle
         className={cn(
-          "feza:inline-block feza:relative image-view__body",
+          "inline-block relative image-view__body",
           selected
             ? "image-view__body--focused"
             : resizing
@@ -256,10 +256,10 @@ export const ImageNodeView = ({
           style={imgAttrs.style}
           onLoad={onImageLoad}
           onClick={onSelectImage}
-          className="image-view__body__image feza:block feza:rounded-lg"
+          className="image-view__body__image block rounded-lg"
         />
         {editor.view.editable && (selected || resizing) && (
-          <div className="image-resizer feza:absolute feza:top-0 feza:left-0 feza:h-full feza:w-full feza:border feza:border-border feza:duration-200 feza:z-[2] feza:cursor-default">
+          <div className="image-resizer absolute top-0 left-0 h-full w-full border border-fz-border duration-200 z-[2] cursor-default">
             {resizeDirections?.map((dir) => (
               <span
                 key={dir}
@@ -267,7 +267,7 @@ export const ImageNodeView = ({
                   borderRadius: "3px",
                 }}
                 className={cn(
-                  "image-resizer__handle feza:absolute feza:z-[2] feza:box-border feza:block feza:aspect-square feza:w-3 feza:border feza:bg-foreground",
+                  "image-resizer__handle absolute z-[2] box-border block aspect-square w-3 border bg-fz-foreground",
                   `image-resizer__handle--${dir}`
                 )}
                 onMouseDown={(e) => onMouseDown(e, dir)}

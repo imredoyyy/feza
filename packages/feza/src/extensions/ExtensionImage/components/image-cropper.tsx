@@ -96,11 +96,7 @@ export const ImageCropper = ({
 
   return (
     <React.Fragment>
-      <Button
-        className="feza:w-full feza:mt-1"
-        size="sm"
-        onClick={handleClickFileInput}
-      >
+      <Button className="w-full mt-1" size="sm" onClick={handleClickFileInput}>
         Upload & Crop
       </Button>
 
@@ -110,20 +106,20 @@ export const ImageCropper = ({
         <DialogContent>
           <DialogTitle>Upload & Crop</DialogTitle>
 
-          <div className="feza:shadow-md feza:outline-1 feza:outline-zinc-700">
+          <div className="shadow-md outline-1 outline-zinc-700">
             {urlUpload.src && (
               <ReactCrop
                 crop={crop}
                 onChange={setCrop}
                 onComplete={onCropComplete}
-                className="feza:w-full feza:h-full"
+                className="w-full h-full"
               >
                 <img ref={imgRef} src={urlUpload.src} alt="Crop" />
               </ReactCrop>
             )}
           </div>
 
-          <DialogFooter className="feza:flex feza:gap-3 feza:flex-col feza:md:flex-row">
+          <DialogFooter className="flex gap-3 flex-col md:flex-row">
             <Button
               variant="destructive"
               onClick={() => {
@@ -138,7 +134,7 @@ export const ImageCropper = ({
               Cancel
             </Button>
 
-            <Button className="feza:ml-1" onClick={onCrop}>
+            <Button className="ml-1" onClick={onCrop}>
               <CropIcon />
               Crop
             </Button>
@@ -152,7 +148,7 @@ export const ImageCropper = ({
         multiple
         onChange={handleFile}
         ref={fileInputRef}
-        className="feza:hidden"
+        className="hidden"
       />
     </React.Fragment>
   );

@@ -12,16 +12,16 @@ function Checkbox({
     <CheckboxPrimitive.Root
       data-slot="checkbox"
       className={cn(
-        "feza:peer feza:border-input feza:data-[state=checked]:bg-primary feza:data-[state=checked]:text-primary-foreground feza:data-[state=checked]:border-primary feza:focus-visible:border-ring feza:focus-visible:ring-ring/50 feza:aria-invalid:ring-destructive/20 feza:dark:aria-invalid:ring-destructive/40 feza:aria-invalid:border-destructive feza:size-4 feza:shrink-0 feza:rounded-[4px] feza:border feza:shadow-xs feza:transition-shadow feza:outline-none feza:focus-visible:ring-[3px] feza:disabled:cursor-not-allowed feza:disabled:opacity-50",
+        "peer border-fz-input data-[state=checked]:bg-fz-primary data-[state=checked]:text-fz-primary-foreground data-[state=checked]:border-fz-primary focus-visible:border-fz-ring focus-visible:ring-fz-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
     >
       <CheckboxPrimitive.Indicator
         data-slot="checkbox-indicator"
-        className="feza:flex feza:items-center feza:justify-center feza:text-current feza:transition-none"
+        className="flex items-center justify-center text-current transition-none"
       >
-        <CheckIcon className="feza:size-3.5" />
+        <CheckIcon className="size-3.5" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   );

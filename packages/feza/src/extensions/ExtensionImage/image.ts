@@ -255,8 +255,7 @@ export const Image = ImageExtension.extend<ImageOptions>({
         },
       }),
       ImageUploadPlugin({
-        imageClass:
-          "feza:opacity-40 feza:rounded-lg feza:border feza:border-stone-200",
+        imageClass: "opacity-40 rounded-lg border border-stone-200",
       }),
     ];
   },

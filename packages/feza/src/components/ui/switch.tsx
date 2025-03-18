@@ -11,7 +11,7 @@ function Switch({
     <SwitchPrimitive.Root
       data-slot="switch"
       className={cn(
-        "feza:peer feza:data-[state=checked]:bg-primary feza:data-[state=unchecked]:bg-input feza:focus-visible:border-ring feza:focus-visible:ring-ring/50 feza:inline-flex feza:h-5 feza:w-9 feza:shrink-0 feza:items-center feza:rounded-full feza:border-2 feza:border-transparent feza:shadow-xs feza:transition-all feza:outline-none feza:focus-visible:ring-[3px] feza:disabled:cursor-not-allowed feza:disabled:opacity-50",
+        "peer data-[state=checked]:bg-fz-primary data-[state=unchecked]:bg-fz-input focus-visible:border-fz-ring focus-visible:ring-fz-ring/50 inline-flex h-5 w-9 shrink-0 items-center rounded-full border-2 border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
@@ -19,7 +19,7 @@ function Switch({
       <SwitchPrimitive.Thumb
         data-slot="switch-thumb"
         className={cn(
-          "feza:bg-background feza:pointer-events-none feza:block feza:size-4 feza:rounded-full feza:ring-0 feza:shadow-lg feza:transition-transform feza:data-[state=checked]:translate-x-4 feza:data-[state=unchecked]:translate-x-0"
+          "bg-fz-background pointer-events-none block size-4 rounded-full ring-0 shadow-lg transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
         )}
       />
     </SwitchPrimitive.Root>

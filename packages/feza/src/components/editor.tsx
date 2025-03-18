@@ -116,7 +116,7 @@ const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
       <TooltipProvider delayDuration={200} disableHoverableContent>
         <div
           className={cn(
-            "feza:flex feza:flex-col feza:w-full feza:rounded-lg feza:border feza:border-input",
+            "flex flex-col rounded-lg border border-fz-input relative",
             className
           )}
           style={{ maxWidth, maxHeight, minWidth, minHeight }}
@@ -124,7 +124,7 @@ const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
           {!hideToolbar && (
             <Toolbar editor={editor} toolbar={toolbar} disabled={disabled} />
           )}
-          <div className="feza:p-2 feza:editor-content-wrapper">
+          <div className="editor-content-wrapper">
             <EditorContent
               ref={ref}
               editor={editor}

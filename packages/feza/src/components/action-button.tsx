@@ -72,7 +72,7 @@ export const ActionButton = React.forwardRef<
             ref={ref}
             size="sm"
             className={cn(
-              "feza:min-h-8 feza:capitalize feza:cursor-pointer feza:disabled:cursor-default",
+              "min-h-8 capitalize cursor-pointer disabled:cursor-default",
               className
             )}
             disabled={props.disabled}
@@ -81,7 +81,7 @@ export const ActionButton = React.forwardRef<
             {...props}
           >
             {props.title && (
-              <span className={cn(iconOnly ? "feza:sr-only" : "")}>
+              <span className={cn(iconOnly ? "sr-only" : "")}>
                 {props.title}
               </span>
             )}
@@ -92,8 +92,8 @@ export const ActionButton = React.forwardRef<
 
         {tooltip && (
           <TooltipContent sideOffset={4} {...tooltipOptions}>
-            <div className="feza:flex feza:flex-col feza:items-center feza:max-w-28">
-              <span className="feza:capitalize">{tooltip}</span>
+            <div className="flex flex-col items-center max-w-28">
+              <span className="capitalize">{tooltip}</span>
               {!!shortcutKeys?.length && (
                 <span>{getShortcutKeys(shortcutKeys)}</span>
               )}

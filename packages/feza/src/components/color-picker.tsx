@@ -69,7 +69,7 @@ export const ColorPicker = React.memo(
     return (
       <Popover modal>
         <PopoverTrigger
-          className={cn("feza:p-0", className)}
+          className={cn("p-0", className)}
           asChild
           disabled={disabled}
         >
@@ -78,52 +78,46 @@ export const ColorPicker = React.memo(
 
         <PopoverContent
           hideWhenDetached
-          className="feza:h-full feza:w-full feza:p-2 feza:border-border"
+          className="h-full w-full p-2 border-fz-border"
         >
-          <div className="feza:flex feza:items-center feza:gap-2">
-            <PaletteIcon
-              className="feza:h-4 feza:w-4 feza:text-blue-500"
-              aria-hidden
-            />
-            <p className="feza:text-sm feza:font-semibold feza:bg-gradient-to-r feza:from-indigo-500 feza:via-violet-500 feza:to-purple-500 feza:bg-clip-text feza:text-transparent">
+          <div className="flex items-center gap-2">
+            <PaletteIcon className="h-4 w-4 text-blue-500" aria-hidden />
+            <p className="text-sm font-semibold bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 bg-clip-text text-transparent">
               Color Palette
             </p>
           </div>
 
           <Separator
             orientation="horizontal"
-            className="feza:mt-2 feza:data-[orientation=vertical]:h-4"
+            className="mt-2 data-[orientation=vertical]:h-4"
           />
 
-          <div className="feza:flex feza:flex-col">
+          <div className="flex flex-col">
             {highlight ? (
               <div
                 onClick={removeColor}
-                className="feza:flex feza:items-center feza:p-1 feza:cursor-pointer feza:gap-2 feza:hover:bg-accent feza:rounded-md feza:transition-colors feza:duration-200"
+                className="flex items-center p-1 cursor-pointer gap-2 hover:bg-fz-accent rounded-md transition-colors duration-200"
               >
-                <DropletOffIcon className="feza:w-4 feza:h-4" />
-                <span className="feza:ml-1 feza:text-sm">Clear</span>
+                <DropletOffIcon className="w-4 h-4" />
+                <span className="ml-1 text-sm">Clear</span>
               </div>
             ) : (
               <div
                 onClick={removeColor}
-                className="feza:flex feza:items-center feza:p-1 feza:cursor-pointer feza:gap-2 feza:hover:bg-accent feza:rounded-md feza:transition-colors feza:duration-200"
+                className="flex items-center p-1 cursor-pointer gap-2 hover:bg-fz-accent rounded-md transition-colors duration-200"
               >
-                <DropletOffIcon className="feza:w-4 feza:h-4" />
-                <span className="feza:ml-1 feza:text-sm">Set to default</span>
+                <DropletOffIcon className="w-4 h-4" />
+                <span className="ml-1 text-sm">Set to default</span>
               </div>
             )}
 
             {colorChunks.map((chunk, i) => (
-              <span
-                key={i}
-                className="feza:relative feza:flex feza:w-full feza:h-auto feza:p-0.5"
-              >
+              <span key={i} className="relative flex w-full h-auto p-0.5">
                 {chunk.map((color, idx) => (
                   <span
                     key={`${highlight ? `highlight-color-${idx}` : "color"}-${idx}`}
                     onClick={() => setColor(color)}
-                    className="feza:h-6 feza:w-6 feza:p-0.5 feza:inline-block feza:rounded-sm feza:border feza:flex-[0_0_24px] feza:cursor-pointer feza:border-input feza:hover:shadow-sm"
+                    className="h-6 w-6 p-0.5 inline-block rounded-sm border flex-[0_0_24px] cursor-pointer border-fz-input hover:shadow-sm"
                   >
                     <span
                       style={{
@@ -132,10 +126,10 @@ export const ColorPicker = React.memo(
                         width: "18px",
                         borderRadius: "2px",
                       }}
-                      className="feza:relative feza:block"
+                      className="relative block"
                     >
                       {color === selectedColor && (
-                        <CheckIcon className="feza:h-3 feza:w-3 feza:text-neutral-200 feza:absolute feza:top-1/2 feza:left-1/2 -feza:translate-x-1/2 -feza:translate-y-1/2" />
+                        <CheckIcon className="h-3 w-3 text-neutral-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                       )}
                     </span>
                   </span>

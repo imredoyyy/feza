@@ -79,7 +79,7 @@ export const LinkEditor = ({ editor, onLinkSave }: LinkEditorProps) => {
   return (
     <form
       onSubmit={onUrlSubmit}
-      className="feza:flex feza:flex-col feza:gap-y-4 feza:text-sm feza:min-w-[13rem]"
+      className="flex flex-col gap-y-4 text-sm min-w-[13rem]"
     >
       <div>
         <Label htmlFor="link-text">Link Text</Label>
@@ -88,7 +88,7 @@ export const LinkEditor = ({ editor, onLinkSave }: LinkEditorProps) => {
           value={formData.text}
           onChange={onTextChange}
           placeholder="Link Text"
-          className="feza:text-sm feza:block feza:mt-2"
+          className="text-sm block mt-2"
         />
       </div>
 
@@ -99,23 +99,23 @@ export const LinkEditor = ({ editor, onLinkSave }: LinkEditorProps) => {
           value={formData.link}
           onChange={onLinkChange}
           placeholder="https://example.com"
-          className="feza:text-sm feza:block feza:mt-2"
+          className="text-sm block mt-2"
         />
       </div>
 
-      <div className="feza:flex feza:items-center feza:justify-between">
-        <Label htmlFor="open-in-new-tab" className="feza:cursor-pointer">
+      <div className="flex items-center justify-between">
+        <Label htmlFor="open-in-new-tab" className="cursor-pointer">
           Open in new tab
         </Label>
         <Switch
           id="open-in-new-tab"
           checked={formData.openInNewTab}
           onCheckedChange={onOpenInNewTabChange}
-          className="feza:ml-2"
+          className="ml-2"
         />
       </div>
 
-      <Button type="submit" size="sm" className="feza:mt-1">
+      <Button type="submit" size="sm" className="mt-1">
         Save Changes
       </Button>
     </form>

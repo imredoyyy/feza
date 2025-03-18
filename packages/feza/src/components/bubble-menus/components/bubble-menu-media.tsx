@@ -36,7 +36,7 @@ const Item = ({ disabled, editor, item }: ItemProps) => {
   return item.type === "divider" ? (
     <Separator
       orientation="vertical"
-      className="feza:mx-1 feza:my-2 feza:data-[orientation=vertical]:h-4"
+      className="mx-1 my-2 data-[orientation=vertical]:h-4"
     />
   ) : (
     <Component
@@ -79,8 +79,8 @@ const BubbleMenuImage = ({ editor, disabled }: BubbleMenuProps) => {
       }}
     >
       {items.length > 0 ? (
-        <div className="feza:px-3 feza:py-2 feza:transition-all feza:border feza:border-border feza:rounded-md feza:shadow-md feza:pointer-events-auto feza:select-none feza:bg-background feza:w-full">
-          <div className="feza:flex feza:items-center feza:gap-2 feza:flex-nowrap feza:justify-start feza:whitespace-nowrap">
+        <div className="px-3 py-2 transition-all border border-fz-border rounded-md shadow-md pointer-events-auto select-none bg-fz-background w-full">
+          <div className="flex items-center gap-2 flex-nowrap justify-start whitespace-nowrap">
             {items.map((item, i) => (
               <Item
                 key={`bubbleMenu-image-${i}`}
@@ -128,7 +128,7 @@ const BubbleMenuImage = ({ editor, disabled }: BubbleMenuProps) => {
 //       }}
 //     >
 //       {items.length > 0 ? (
-//         <div className="feza:px-3 feza:py-2 feza:transition-all feza:border feza:border-border feza:rounded-md feza:shadow-md feza:pointer-events-auto feza:select-none feza:bg-background feza:w-auto">
+//         <div className="px-3 py-2 transition-all border border-fz-border rounded-md shadow-md pointer-events-auto select-none bg-fz-background w-auto">
 //           {items.map((item, i) => (
 
 //               <Item

@@ -196,10 +196,10 @@ export const ImageUploadButton = ({
         />
       </DialogTrigger>
 
-      <DialogContent className="feza:border-border">
+      <DialogContent className="border-fz-border">
         <DialogTitle>{title || "Upload Image"}</DialogTitle>
 
-        <DialogDescription className="feza:sr-only">
+        <DialogDescription className="sr-only">
           Upload an image
         </DialogDescription>
 
@@ -211,7 +211,7 @@ export const ImageUploadButton = ({
           }
           activationMode="manual"
         >
-          <TabsList className={cn("feza:grid feza:grid-cols-2 feza:w-full")}>
+          <TabsList className={cn("grid grid-cols-2 w-full")}>
             <TabsTrigger value="upload" disabled={imageSourceType === "url"}>
               Upload
             </TabsTrigger>
@@ -220,32 +220,25 @@ export const ImageUploadButton = ({
             </TabsTrigger>
           </TabsList>
 
-          <div className="feza:flex feza:items-center feza:gap-1 feza:my-3">
+          <div className="flex items-center gap-1 my-3">
             <Checkbox
               id="inline"
               checked={inline}
               onCheckedChange={(val) => setInline(val as boolean)}
             />
-            <Label htmlFor="inline" className="feza:cursor-pointer">
+            <Label htmlFor="inline" className="cursor-pointer">
               Inline
             </Label>
           </div>
 
-          <TabsContent
-            value="upload"
-            className="feza:flex feza:flex-col feza:gap-4"
-          >
+          <TabsContent value="upload" className="flex flex-col gap-4">
             <ImageMetadataFields
               imageMetadata={imageMetadata}
               onMetadataChange={onMetadataChange}
             />
 
-            <div className="feza:grid feza:grid-cols-1 feza:md:grid-cols-2 feza:gap-y-2 feza:md:gap-x-2 feza:md:gap-y-0">
-              <Button
-                className="feza:mt-1 feza:w-full"
-                onClick={handleClick}
-                size="sm"
-              >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-x-2 md:gap-y-0">
+              <Button className="mt-1 w-full" onClick={handleClick} size="sm">
                 Upload
               </Button>
 
@@ -262,29 +255,26 @@ export const ImageUploadButton = ({
               ref={fileInputRef}
               multiple
               accept={uploadOptions?.acceptMimeTypes?.join(",") ?? "image/*"}
-              className="feza:hidden"
+              className="hidden"
               onChange={handleFile}
             />
           </TabsContent>
 
           <TabsContent value="url">
-            <form
-              className="feza:flex feza:flex-col feza:gap-4"
-              onSubmit={handleImageUrl}
-            >
+            <form className="flex flex-col gap-4" onSubmit={handleImageUrl}>
               <ImageMetadataFields
                 imageMetadata={imageMetadata}
                 onMetadataChange={onMetadataChange}
               />
 
-              <div className="feza:flex feza:items-center feza:gap-2">
+              <div className="flex items-center gap-2">
                 <Input
                   type="url"
                   autoFocus
                   value={imageUrl}
                   onChange={(e) => setImageUrl(e.target.value)}
                   placeholder="URL of the image"
-                  className="feza:flex-1"
+                  className="flex-1"
                 />
 
                 <Button type="submit">Apply</Button>
@@ -310,11 +300,11 @@ const ImageMetadataFields = ({
   onMetadataChange,
 }: ImageMetadataFieldsProps) => {
   return (
-    <div className="feza:space-y-2.5">
-      <div className="feza:grid feza:md:grid-cols-12 feza:items-center feza:gap-2">
+    <div className="space-y-2.5">
+      <div className="grid md:grid-cols-12 items-center gap-2">
         <Label
           htmlFor="image-alt"
-          className="feza:md:col-span-5"
+          className="md:col-span-5"
           title="Recommended for accsessibility"
         >
           Alt Text
@@ -323,15 +313,15 @@ const ImageMetadataFields = ({
           id="image-alt"
           value={imageMetadata?.alt}
           onChange={(e) => onMetadataChange(e, "alt")}
-          className="feza:md:col-span-7"
+          className="md:col-span-7"
           placeholder="A beautiful sunset..."
         />
       </div>
 
-      <div className="feza:grid feza:md:grid-cols-12 feza:items-center feza:gap-2">
+      <div className="grid md:grid-cols-12 items-center gap-2">
         <Label
           htmlFor="image-title"
-          className="feza:md:col-span-5"
+          className="md:col-span-5"
           title="Recommended for accsessibility"
         >
           Title
@@ -340,7 +330,7 @@ const ImageMetadataFields = ({
           id="image-title"
           value={imageMetadata?.title}
           onChange={(e) => onMetadataChange(e, "title")}
-          className="feza:md:col-span-7"
+          className="md:col-span-7"
           placeholder="Photo taken during trip..."
         />
       </div>

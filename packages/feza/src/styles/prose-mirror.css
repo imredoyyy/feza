@@ -20,13 +20,13 @@
 
     div[data-youtube-video] > iframe {
       width: 100%;
-      @apply feza:border feza:rounded-lg feza:border-muted feza:aspect-video;
+      @apply border rounded-lg border-fz-muted aspect-video;
     }
 
     .is-editor-empty:first-child::before {
       content: attr(data-placeholder);
       float: left;
-      color: var(--muted-foreground);
+      color: var(--fz-muted-foreground);
       pointer-events: none;
       height: 0;
     }
@@ -34,7 +34,7 @@
     .is-empty::before {
       content: attr(data-placeholder);
       float: left;
-      color: var(--muted-foreground);
+      color: var(--fz-muted-foreground);
       pointer-events: none;
       height: 0;
     }
@@ -53,15 +53,15 @@
     }
 
     [data-extension="bullet-list"] {
-      @apply feza:list-disc feza:pl-4 feza:ml-2;
+      @apply list-disc pl-4 ml-2;
     }
 
     [data-extension="ordered-list"] {
-      @apply feza:list-decimal feza:pl-4 feza:ml-2;
+      @apply list-decimal pl-4 ml-2;
     }
 
     [data-extension="blockquote"] {
-      @apply feza:border-l-4 feza:border-muted-foreground feza:py-2 feza:px-4 feza:my-6;
+      @apply border-l-4 border-fz-muted-foreground py-2 px-4 my-6;
     }
 
     .image-view {
@@ -78,7 +78,7 @@
         transition: all 250ms ease-in;
 
         &:hover {
-          @apply feza:outline-amber-500;
+          @apply outline-amber-500;
           .image-view__body__button-wrap {
             display: block;
           }
@@ -87,12 +87,12 @@
 
       &.image-view__body--focused:hover,
       &.image-view__body--resizing:hover {
-        outline: var(--foreground);
+        outline: var(--fz-foreground);
       }
 
       .image-view__body {
         &.image-view__body--focused {
-          outline-color: var(--primary);
+          outline-color: var(--fz-primary);
         }
         .image-resizer {
           .image-resizer__handle {
@@ -130,7 +130,7 @@
       min-height: 200px;
       border-radius: 1rem;
       outline: 0px solid transparent;
-      @apply feza:border-orange-300 feza:border-8;
+      @apply border-orange-300 border-8;
     }
     ul[data-type="taskList"] li > label {
       user-select: none;
@@ -147,14 +147,14 @@
     ul[data-type="taskList"] li > label input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
-      @apply feza:bg-transparent feza:m-0 feza:cursor-pointer feza:w-[1.25rem] feza:h-[1.25rem] feza:relative feza:top-[5px] feza:border-2 feza:mr-[0.3rem] feza:grid feza:place-content-center feza:rounded-sm;
+      @apply bg-transparent m-0 cursor-pointer w-[1.25rem] h-[1.25rem] relative top-[5px] border-2 mr-[0.3rem] grid place-content-center rounded-sm;
 
       &:hover {
-        @apply feza:bg-accent;
+        @apply bg-fz-accent;
       }
 
       &:active {
-        @apply feza:bg-accent;
+        @apply bg-fz-accent;
       }
 
       &:checked::before {
@@ -166,15 +166,15 @@
         width: 0.6rem;
         height: 0.6rem;
         transform: scale(0);
-        box-shadow: inset 1em 1em var(--foreground);
+        box-shadow: inset 1em 1em var(--fz-foreground);
         clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-        @apply feza:transition-transform feza:origin-center feza:duration-100 feza:ease-in-out;
+        @apply transition-transform origin-center duration-100 ease-in-out;
       }
     }
 
     ul[data-type="taskList"] li[data-checked="true"] > div > p {
       text-decoration-thickness: 2px;
-      @apply feza:text-neutral-400 feza:dark:text-neutral-500 feza:line-through;
+      @apply text-neutral-400 dark:text-neutral-500 line-through;
     }
 
     span[style] > strong {
@@ -204,12 +204,12 @@
 
   &:hover {
     transition: background-color 0.2s;
-    @apply feza:bg-gray-200 feza:dark:bg-gray-600;
+    @apply bg-gray-200 dark:bg-gray-600;
   }
 
   &:active {
     transition: background-color 0.2s;
-    @apply feza:bg-gray-300 feza:dark:bg-gray-700;
+    @apply bg-gray-300 dark:bg-gray-700;
   }
 
   &.hide {

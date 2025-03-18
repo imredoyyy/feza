@@ -42,7 +42,7 @@ function DropdownMenuContent({
         data-slot="dropdown-menu-content"
         sideOffset={sideOffset}
         className={cn(
-          "feza:bg-popover feza:text-popover-foreground feza:data-[state=open]:animate-in feza:data-[state=closed]:animate-out feza:data-[state=closed]:fade-out-0 feza:data-[state=open]:fade-in-0 feza:data-[state=closed]:zoom-out-95 feza:data-[state=open]:zoom-in-95 feza:data-[side=bottom]:slide-in-from-top-2 feza:data-[side=left]:slide-in-from-right-2 feza:data-[side=right]:slide-in-from-left-2 feza:data-[side=top]:slide-in-from-bottom-2 feza:z-50 feza:min-w-[8rem] feza:overflow-hidden feza:rounded-md feza:border feza:p-1 feza:shadow-md",
+          "bg-fz-popover text-fz-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-md",
           className
         )}
         {...props}
@@ -74,7 +74,7 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "feza:focus:bg-accent feza:focus:text-accent-foreground feza:data-[variant=destructive]:text-destructive-foreground feza:data-[variant=destructive]:focus:bg-destructive/10 dark:feza:data-[variant=destructive]:focus:bg-destructive/40 feza:data-[variant=destructive]:focus:text-destructive-foreground feza:data-[variant=destructive]:*:[svg]:!text-destructive-foreground feza:[&_svg:not([class*=text-])]:text-muted-foreground feza:relative feza:flex feza:cursor-default feza:items-center feza:gap-2 feza:rounded-sm feza:px-2 feza:py-1.5 feza:text-sm feza:outline-hidden feza:select-none feza:data-[disabled]:pointer-events-none feza:data-[disabled]:opacity-50 feza:data-[inset]:pl-8 feza:[&_svg]:pointer-events-none feza:[&_svg]:shrink-0 feza:[&_svg:not([class*=size-])]:size-4",
+        "focus:bg-fz-accent focus:text-fz-accent-foreground data-[variant=destructive]:text-fz-destructive-foreground data-[variant=destructive]:focus:bg-fz-destructive/10 dark:data-[variant=destructive]:focus:bg-fz-destructive/40 data-[variant=destructive]:focus:text-fz-destructive-foreground data-[variant=destructive]:*:[svg]:!text-fz-destructive-foreground [&_svg:not([class*=text-])]:text-fz-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4",
         className
       )}
       {...props}
@@ -92,15 +92,15 @@ function DropdownMenuCheckboxItem({
     <DropdownMenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
       className={cn(
-        "feza:focus:bg-accent feza:focus:text-accent-foreground feza:relative feza:flex feza:cursor-default feza:items-center feza:gap-2 feza:rounded-sm feza:py-1.5 feza:pr-2 feza:pl-8 feza:text-sm feza:outline-hidden feza:select-none feza:data-[disabled]:pointer-events-none feza:data-[disabled]:opacity-50 feza:[&_svg]:pointer-events-none feza:[&_svg]:shrink-0 feza:[&_svg:not([class*=size-])]:size-4",
+        "focus:bg-fz-accent focus:text-fz-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4",
         className
       )}
       checked={checked}
       {...props}
     >
-      <span className="feza:pointer-events-none feza:absolute feza:left-2 feza:flex feza:size-3.5 feza:items-center feza:justify-center">
+      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <CheckIcon className="feza:size-4" />
+          <CheckIcon className="size-4" />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
@@ -128,14 +128,14 @@ function DropdownMenuRadioItem({
     <DropdownMenuPrimitive.RadioItem
       data-slot="dropdown-menu-radio-item"
       className={cn(
-        "feza:focus:bg-accent feza:focus:text-accent-foreground feza:relative feza:flex feza:cursor-default feza:items-center feza:gap-2 feza:rounded-sm feza:py-1.5 feza:pr-2 feza:pl-8 feza:text-sm feza:outline-hidden feza:select-none feza:data-[disabled]:pointer-events-none feza:data-[disabled]:opacity-50 feza:[&_svg]:pointer-events-none feza:[&_svg]:shrink-0 feza:[&_svg:not([class*=size-])]:size-4",
+        "focus:bg-fz-accent focus:text-fz-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4",
         className
       )}
       {...props}
     >
-      <span className="feza:pointer-events-none feza:absolute feza:left-2 feza:flex feza:size-3.5 feza:items-center feza:justify-center">
+      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <CircleIcon className="feza:size-2 feza:fill-current" />
+          <CircleIcon className="size-2 fill-current" />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
@@ -155,7 +155,7 @@ function DropdownMenuLabel({
       data-slot="dropdown-menu-label"
       data-inset={inset}
       className={cn(
-        "feza:px-2 feza:py-1.5 feza:text-sm feza:font-medium feza:data-[inset]:pl-8",
+        "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
         className
       )}
       {...props}
@@ -170,7 +170,7 @@ function DropdownMenuSeparator({
   return (
     <DropdownMenuPrimitive.Separator
       data-slot="dropdown-menu-separator"
-      className={cn("feza:bg-border feza:-mx-1 feza:my-1 feza:h-px", className)}
+      className={cn("bg-fz-border -mx-1 my-1 h-px", className)}
       {...props}
     />
   );
@@ -184,7 +184,7 @@ function DropdownMenuShortcut({
     <span
       data-slot="dropdown-menu-shortcut"
       className={cn(
-        "feza:text-muted-foreground feza:ml-auto feza:text-xs feza:tracking-widest",
+        "text-fz-muted-foreground ml-auto text-xs tracking-widest",
         className
       )}
       {...props}
@@ -211,13 +211,13 @@ function DropdownMenuSubTrigger({
       data-slot="dropdown-menu-sub-trigger"
       data-inset={inset}
       className={cn(
-        "feza:focus:bg-accent feza:focus:text-accent-foreground feza:data-[state=open]:bg-accent feza:data-[state=open]:text-accent-foreground feza:flex feza:cursor-default feza:items-center feza:rounded-sm feza:px-2 feza:py-1.5 feza:text-sm feza:outline-hidden feza:select-none feza:data-[inset]:pl-8",
+        "focus:bg-fz-accent focus:text-fz-accent-foreground data-[state=open]:bg-fz-accent data-[state=open]:text-fz-accent-foreground flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8",
         className
       )}
       {...props}
     >
       {children}
-      <ChevronRightIcon className="feza:ml-auto feza:size-4" />
+      <ChevronRightIcon className="ml-auto size-4" />
     </DropdownMenuPrimitive.SubTrigger>
   );
 }
@@ -230,7 +230,7 @@ function DropdownMenuSubContent({
     <DropdownMenuPrimitive.SubContent
       data-slot="dropdown-menu-sub-content"
       className={cn(
-        "feza:bg-popover feza:text-popover-foreground feza:data-[state=open]:animate-in feza:data-[state=closed]:animate-out feza:data-[state=closed]:fade-out-0 feza:data-[state=open]:fade-in-0 feza:data-[state=closed]:zoom-out-95 feza:data-[state=open]:zoom-in-95 feza:data-[side=bottom]:slide-in-from-top-2 feza:data-[side=left]:slide-in-from-right-2 feza:data-[side=right]:slide-in-from-left-2 feza:data-[side=top]:slide-in-from-bottom-2 feza:z-50 feza:min-w-[8rem] feza:overflow-hidden feza:rounded-md feza:border feza:p-1 feza:shadow-lg",
+        "bg-fz-popover text-fz-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-lg",
         className
       )}
       {...props}

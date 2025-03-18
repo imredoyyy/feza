@@ -19,10 +19,10 @@ interface EditorCommandProps {
 
 export const EditorCommandList = ({ items, command }: EditorCommandProps) => {
   return (
-    <Command className="feza:rounded-lg feza:border feza:border-input feza:shadow-sm feza:min-w-[14.5rem]">
+    <Command className="rounded-lg border border-fz-input shadow-sm min-w-[14.5rem]">
       <CommandInput placeholder="Search..." />
 
-      <CommandList className="feza:max-h-[min(80vh,400px)] feza:overflow-y-auto">
+      <CommandList className="max-h-[min(80vh,400px)] overflow-y-auto">
         <CommandEmpty>Nothing found.</CommandEmpty>
 
         {items.map((group, groupIdx) => (
@@ -31,16 +31,16 @@ export const EditorCommandList = ({ items, command }: EditorCommandProps) => {
               <CommandItem
                 key={`command-item-${commandIdx}`}
                 onSelect={() => command(item)}
-                className="feza:flex feza:items-center feza:gap-2 feza:transition-colors feza:duration-200"
+                className="flex items-center gap-2 transition-colors duration-200"
               >
                 {item.icon && (
-                  <span className="feza:inline-block feza:rounded-md feza:p-2 feza:border-muted feza:border feza:bg-background">
-                    <item.icon className="feza:h-4 feza:w-4" />
+                  <span className="inline-block rounded-md p-2 border-fz-muted border bg-fz-background">
+                    <item.icon className="h-4 w-4" />
                   </span>
                 )}
-                <div className="feza:space-y-0.5">
-                  <p className="feza:capitalize">{item.label}</p>
-                  <span className="feza:block feza:text-xs feza:text-muted-foreground feza:normal-case">
+                <div className="space-y-0.5">
+                  <p className="capitalize">{item.label}</p>
+                  <span className="block text-xs text-fz-muted-foreground normal-case">
                     {item.description}
                   </span>
                 </div>
