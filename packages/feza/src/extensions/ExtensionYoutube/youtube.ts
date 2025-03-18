@@ -2,8 +2,8 @@ import {
   Youtube as YoutubeExtension,
   type YoutubeOptions as YoutubeExtensionOptions,
 } from "@tiptap/extension-youtube";
-import { Editor, Range } from "@tiptap/core";
 import { YoutubeIcon } from "lucide-react";
+import type { Editor, Range } from "@tiptap/core";
 
 import { ActionButton } from "@/components";
 import type { ExtensionOptions } from "@/types";
@@ -36,6 +36,7 @@ export const Youtube = YoutubeExtension.extend<YoutubeOptions>({
 
   addAttributes() {
     return {
+      ...this.parent?.(),
       "data-extension": {
         default: "youtube",
         renderHTML: (attributes) => ({
