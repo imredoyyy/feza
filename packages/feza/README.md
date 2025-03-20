@@ -29,6 +29,15 @@ Feza's codebase is fully [open-source](https://github.com/imredoyyy/feza) and bu
 - [Tailwind CSS](https://tailwindcss.com)
 - [shadcn/ui](https://ui.shadcn.com)
 
+## 📦 Installation
+
+```bash
+npm install feza
+
+# or
+pnpm add feza
+```
+
 ## License
 
 [MIT License](https://github.com/imredoyyy/feza/blob/main/LICENSE.md)
