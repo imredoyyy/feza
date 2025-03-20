@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
+  "license": "MIT",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -103,6 +104,10 @@
     "typescript-eslint": "^8.24.1"
   },
   "author": "Redoy Saha <redoysaha3236@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imredoyyy/feza"
+  },
   "keywords": [
     "tiptap",
     "editor",
