@@ -1,7 +1,7 @@
 <p align="center>
   <picture>
-    <source srcset="./banner-dark.png" media="(prefers-color-scheme: dark)"/>
-    <source srcset="./banner-light.png" media="(prefers-color-scheme: light)"/>
+    <source srcset="./banner-dark.png" media="(prefers-color-scheme: dark)">
+    <source srcset="./banner-light.png" media="(prefers-color-scheme: light)">
     <img src="./banner-light.png" alt="Feza Banner" />
   </picture>
 </p>
