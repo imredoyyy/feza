@@ -1,9 +1,5 @@
 <p align="center>
-  <picture>
-    <source srcset="https://github.com/imredoyyy/feza/blob/main/banner-dark.png?raw=true" media="(prefers-color-scheme: dark)"/>
-    <source srcset="https://github.com/imredoyyy/feza/blob/main/banner.png?raw=true" media="(prefers-color-scheme: light)"/>
     <img src="https://github.com/imredoyyy/feza/blob/main/banner.png?raw=true" alt="Feza Banner" />
-  </picture>
 </p>
 
 <h2 align="center>Feza</h2>
