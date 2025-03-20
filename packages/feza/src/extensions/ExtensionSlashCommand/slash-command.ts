@@ -41,12 +41,10 @@ export const SlashCommand = Extension.create({
         command: ({ editor, range, props }: CommandProps) => {
           props.command({ editor, range });
         },
-        items: ({ query, editor }: SuggestionProps) => {
-          const commandGroups = createSuggestionCommandItems(
+        items: ({ editor }: SuggestionProps) => {
+          return createSuggestionCommandItems(
             editor.extensionManager.extensions
           );
-
-          return filterCommandGroups(commandGroups, query.toLowerCase());
         },
         render: () => createCommandRenderer(),
       },
@@ -64,25 +62,6 @@ export const SlashCommand = Extension.create({
   },
 });
 
-const filterCommandGroups = (
-  groups: CommandItemGroup[],
-  query: string
-): CommandItemGroup[] => {
-  const filteredGroups = groups.map((group) => ({
-    ...group,
-    commandItems: group.commandItems.filter((item) => {
-      if (item.searchQueries?.length) {
-        return item.searchQueries.some((searchQuery) =>
-          searchQuery.toLowerCase().includes(query)
-        );
-      }
-      return item.label.toLowerCase().includes(query);
-    }),
-  }));
-
-  return filteredGroups.filter((group) => group.commandItems.length > 0);
-};
-
 const createCommandRenderer = () => {
   let component: ReactRenderer | null = null;
   let popup: Instance<Props>[] | null = null;
@@ -99,7 +78,10 @@ const createCommandRenderer = () => {
       }
 
       component = new ReactRenderer(EditorCommandList, {
-        props,
+        props: {
+          ...props,
+          onEsc: () => popup?.[0]?.hide(),
+        },
         editor,
       });
 
@@ -140,20 +122,8 @@ const createCommandRenderer = () => {
         return true;
       }
 
-      // Close the popup when typing regular characters (not navigation keys)
-      const isRegularCharacter =
-        event.key.length === 1 &&
-        !event.ctrlKey &&
-        !event.metaKey &&
-        !event.altKey;
-
-      if (isRegularCharacter && event.key !== "/") {
-        popup?.[0]?.hide();
-        // Return false to allow the character to be typed
-        return false;
-      }
-
-      return false;
+      // @ts-expect-error property does not exist
+      return component?.ref?.onKeyDown?.(event) || false;
     },
 
     onExit: () => {

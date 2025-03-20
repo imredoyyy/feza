@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Command,
   CommandEmpty,
@@ -15,17 +17,114 @@ import type {
 interface EditorCommandProps {
   items: CommandItemGroup[];
   command: (item: CommandItemProps) => void;
+  onEsc: () => void;
 }
 
-export const EditorCommandList = ({ items, command }: EditorCommandProps) => {
+export const EditorCommandList = ({
+  items,
+  command,
+  onEsc,
+}: EditorCommandProps) => {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const commandRef = React.useRef<HTMLDivElement>(null);
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [filteredItems, setFilteredItems] = React.useState(items);
+
+  React.useEffect(() => {
+    if (inputRef.current) {
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 10);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    const query = searchQuery.toLowerCase();
+    const filtered = filterCommandGroups(items, query);
+    setFilteredItems(filtered);
+  }, [searchQuery, items]);
+
+  const filterCommandGroups = (
+    groups: CommandItemGroup[],
+    query: string
+  ): CommandItemGroup[] => {
+    if (!query) return groups;
+
+    const queryLower = query.toLowerCase();
+
+    return groups
+      .map((group) => ({
+        ...group,
+        commandItems: group.commandItems.filter((item) => {
+          const allSearchString = [
+            item.label.toLowerCase(),
+            item.name.toLowerCase(),
+            ...(item.searchQueries.map((q) => q.toLowerCase()) || []),
+          ];
+          return allSearchString.some((str) => str.includes(queryLower));
+        }),
+      }))
+      .filter((group) => group.commandItems.length > 0);
+  };
+
+  React.useEffect(() => {
+    const keys = ["ArrowUp", "ArrowDown", "Enter"];
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (keys.includes(e.key)) {
+        e.preventDefault();
+
+        if (commandRef.current) {
+          commandRef.current.dispatchEvent(
+            new KeyboardEvent("keyDown", {
+              key: e.key,
+              cancelable: true,
+              bubbles: true,
+            })
+          );
+
+          return false;
+        }
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onEsc?.();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [onEsc]);
+
   return (
-    <Command className="rounded-lg border border-fz-input shadow-sm min-w-[14.5rem]">
-      <CommandInput placeholder="Search..." />
+    <Command
+      shouldFilter={false}
+      ref={commandRef}
+      className="rounded-lg border border-fz-input shadow-sm min-w-[14.5rem]"
+    >
+      <CommandInput
+        value={searchQuery}
+        onValueChange={setSearchQuery}
+        placeholder="Search..."
+        ref={inputRef}
+      />
 
       <CommandList className="max-h-[min(80vh,400px)] overflow-y-auto">
         <CommandEmpty>Nothing found.</CommandEmpty>
 
-        {items.map((group, groupIdx) => (
+        {filteredItems.map((group, groupIdx) => (
           <CommandGroup key={`command-group-${groupIdx}`} heading={group.label}>
             {group.commandItems.map((item, commandIdx) => (
               <CommandItem

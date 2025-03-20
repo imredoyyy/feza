@@ -81,7 +81,7 @@ export const createSuggestionCommandItems = (extensions: Extensions) => {
         label: `Blockquote`,
         icon: QuoteIcon,
         description: `Add a blockquote.`,
-        searchQueries: ["blockquote"],
+        searchQueries: ["blockquote", "quote"],
       });
     }
 
