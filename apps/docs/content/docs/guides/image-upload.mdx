@@ -1,0 +1,157 @@
+---
+title: Image Upload
+description: How to upload images in the editor.
+---
+
+## Image Upload
+
+<Callout type='warn'>
+    **Note on File Validation**
+
+    The `Image` extension does not provide built-in file validation. You must implement your own `validateFn` to enforce file restrictions.
+
+</Callout>
+
+## Basic Setup
+
+```ts
+import { Image as TiptapImage } from "feza";
+
+const image = TiptapImage.configure({
+  validateFn: (file) => {
+    // Custom validation logic
+    return true;
+  },
+
+  uploadFn: (file) => {
+    // Image upload implementation
+  },
+});
+
+const extensions = [
+  image,
+  // ...
+];
+```
+
+## Validation Function
+
+`validateFn` accepts a `File` object as an argument and returns `boolean`.
+
+```ts
+const image = TiptapImage.configure({
+  validateFn: (file) => {
+    // Your custom validation logic
+    // Return true to allow upload
+    // Return false to prevent upload
+    if (file.size > 3 * 1024 * 1024) {
+      toast.error("File size must be less than 3MB");
+      return false;
+    }
+
+    return true;
+  },
+});
+```
+
+### Validation Workflow
+
+1. User selects a file
+2. `validateFn` is called(if provided)
+3. If `validateFn` returns `true`, proceed to `uploadFn`
+4. If `validateFn` returns `false`, upload is cancelled
+
+## Upload Function
+
+`uploadFn` accepts a `File` object as an argument and returns a `Promise<string>` that resolves to the URL of the uploaded image.
+
+<Callout type="info">
+  The `uploadFn` handles the actual image upload process.
+</Callout>
+
+### Image Upload Example
+
+```ts
+const image = TiptapImage.configure({
+  uploadFn: (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    // Do not await here
+    const uploadPromise = fetch("/api/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    return new Promise((resolve, reject) => {
+      toast.promise(
+        uploadPromise.then(async (res) => {
+          if (res.ok) {
+            const { url } = (await res.json()) as { url: string };
+            resolve(url);
+          } else if (res.status === 400) {
+            // Assuming your API returns an object
+            // with an "error" property
+            const { error } = (await res.json()) as { error: string };
+            throw new Error(error);
+          } else {
+            throw new Error("Error uploading image. Please try again");
+          }
+        }),
+        {
+          loading: "Uploading image...",
+          success: "Image uploaded successfully",
+          error: (e) => {
+            reject(e);
+            return e.message;
+          },
+        }
+      );
+    });
+  },
+});
+```
+
+## Best Practices
+
+<Callout type="warn">
+  **Security Considerations**
+
+    - Always validate files on both client and server
+    - Implement file size and type restrictions
+    - Handle potential upload errors gracefully
+
+  </Callout>
+
+## Props
+
+<TypeTable
+  fields={[
+    {
+      title: "Image Upload Props",
+      description: "Props for the image upload plugin.",
+      items: [
+        {
+          prop: "uploadFn",
+          type: "function",
+          description: "Function to upload file.",
+          required: true,
+          params: "(file: File) => Promise<string>",
+        },
+        {
+          prop: "validateFn",
+          type: "function",
+          description: "Function to validate file.",
+          params: "(file: File) => boolean",
+        },
+        {
+          prop: "imageSourceType",
+          type: ["upload", "url", "both"],
+          description: "The source type of the image.",
+          defaultValue: `"both"`,
+          required: true,
+        },
+      ],
+    },
+  ]}
+/>

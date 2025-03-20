@@ -1,0 +1,232 @@
+---
+title: Toolbar
+description: Customize the editor toolbar to suit your needs.
+---
+
+## Basic Usage
+
+Toolbar buttons are automatically populated based on the provided extensions. However, you can prevent certain extensions from appearing in the toolbar.
+
+```tsx
+Bold.configure({
+  // This extension will not appear in the toolbar
+  showInToolbar: false,
+});
+```
+
+## Hide the Toolbar completely
+
+You can completely hide the toolbar by setting the `hideToolbar` prop to `true`.
+
+```tsx
+<TiptapEditor hideToolbar extensions={extensions} />
+```
+
+## Custom Toolbar Rendering
+
+While the default toolbar automatically displays buttons based on your extensions, you can completely customize the toolbar rendering with `toolbar` prop.
+
+```tsx
+<TiptapEditor
+  extensions={extensions}
+  toolbar={{
+    render: (
+      toolbarRenderParams,
+      toolbarItems,
+      domElements,
+      containerWrapper
+    ) => {
+      // Your custom toolbar rendering logic here
+      return (
+        <div className="my-custom-toolbar">
+          {/* Custom toolbar implementation */}
+        </div>
+      );
+    },
+  }}
+/>
+```
+
+## Props
+
+<TypeTable
+  fields={[
+    {
+      title: "The render function",
+      items: [
+        {
+          prop: "render",
+          type: "function",
+          description: "Custom render function for the toolbar.",
+          params:
+            "(toolbarRenderParams, toolbarItems, domElements, containerWrapper) => React.ReactNode",
+        },
+      ],
+    },
+  ]}
+/>
+
+<TypeTable
+  fields={[
+    {
+      title: "Render Function Parameters",
+      description: "Parameters received by the custom render function.",
+      items: [
+        {
+          prop: "toolbarRenderParams",
+          type: "ToolbarRenderParams",
+          description: "Contains the editor instance and disabled state.",
+          asLink: true,
+        },
+        {
+          prop: "toolbarItems",
+          type: "ToolbarItem[]",
+          description: "Array of toolbar item configurations.",
+          asLink: true,
+        },
+        {
+          prop: "domElements",
+          type: "React.JSX.Element[]",
+          description: "Pre-rendered toolbar button elements.",
+        },
+        {
+          prop: "containerWrapper",
+          type: "function",
+          params: "(children: React.ReactNode) => React.ReactNode",
+        },
+      ],
+    },
+  ]}
+/>
+
+<TypeTable
+  fields={[
+    {
+      title: "Toolbar Render Params",
+      description: "Parameters passed to the toolbar render function.",
+      items: [
+        {
+          prop: "editor",
+          type: "interface",
+          description: "The Tiptap editor instance.",
+          required: true,
+        },
+        {
+          prop: "disabled",
+          type: "boolean",
+          description: "Whether the editor is disabled.",
+          required: false,
+        },
+      ],
+    },
+  ]}
+/>
+
+<TypeTable
+  fields={[
+    {
+      title: "Toolbar Items",
+      description: "Structure of each toolbar item.",
+      items: [
+        {
+          prop: "button",
+          type: "ToolbarButtonProps",
+          description: "Configuration for the toolbar button.",
+          required: true,
+          asLink: true,
+        },
+        {
+          prop: "showDividerAfter",
+          type: "boolean",
+          description:
+            "Determines whether a divider should be added after the toolbar button.",
+        },
+        {
+          prop: "showDividerBefore",
+          type: "boolean",
+          description:
+            "Determines whether a divider should be added before the toolbar button.",
+        },
+        {
+          prop: "extensionType",
+          type: "string",
+          description: "Type of the extension.",
+          required: true,
+        },
+        {
+          prop: "extensionName",
+          type: "string",
+          description: "Name of the extension.",
+          required: true,
+        },
+      ],
+    },
+  ]}
+/>
+
+<TypeTable
+  fields={[
+    {
+      title: "Toolbar Button Props",
+      description: "Represents the configuration for a toolbar button.",
+      items: [
+        {
+          prop: "toolbarComponent",
+          type: "React.ComponentType<any>",
+          description: "The component to be rendered as toolbar button.",
+          required: true,
+        },
+        {
+          prop: "toolbarComponentProps",
+          type: "ToolbarButtonComponentProps",
+          description: "Properties passed to the toolbar button component.",
+          asLink: true,
+        },
+      ],
+    },
+  ]}
+/>
+
+<TypeTable
+  fields={[
+    {
+      title: "Toolbar Component Props.",
+      description: "Properties passed to a toolbar button component.",
+      items: [
+        {
+          prop: "action",
+          type: "function",
+          description: "Function to be called when the button is clicked.",
+          params: "(params?: any) => void",
+        },
+        {
+          prop: "isActive",
+          type: "function",
+          description:
+            "Function that determines if the button is currently active.",
+          params: "() => boolean",
+        },
+        {
+          prop: "tooltip",
+          type: "string",
+          description: "Tooltip text displayed on hover.",
+        },
+        {
+          prop: "shortcutKeys",
+          type: "string[]",
+          description: "Shortcut keys associated with the button.",
+        },
+        {
+          prop: "disabled",
+          type: "boolean",
+          description: "Whether the button should be disabled.",
+        },
+        {
+          prop: "[key: string]",
+          type: "any",
+          description: "Additional component properties.",
+        },
+      ],
+    },
+  ]}
+/>

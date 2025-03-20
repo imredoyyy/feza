@@ -1,0 +1,119 @@
+---
+title: Extensions
+description: Styled and functional extensions for the editor.
+---
+
+<Callout>You can use any Tiptap extensions or create your own.</Callout>
+
+## Default Extensions
+
+```ts title="extensions.ts"
+import {
+  Blockquote,
+  Bold,
+  BulletList,
+  Code,
+  CodeBlock,
+  Color,
+  Document,
+  FontFamily,
+  Heading,
+  Highlight,
+  Image,
+  Italic,
+  Link,
+  ListItem,
+  Mathematics,
+  OrderedList,
+  TaskList,
+  Paragraph,
+  Placeholder,
+  Selection,
+  SlashCommand,
+  StarterKit,
+  Strike,
+  Subscript,
+  SubscriptAndSuperscript,
+  Superscript,
+  Text,
+  TextAlign,
+  TextStyle,
+  Underline,
+  Youtube,
+} from "feza";
+
+export const extensions = [
+  StarterKit,
+  Blockquote,
+  Bold,
+  // Other extensions...
+];
+```
+
+## Avoiding Duplicate Extensions
+
+The `StarterKit` extension already includes several core extensions by default, such as `Document`, `Paragraph`, `Text`, and more. You do not need to import them separately unless you want to customize their configuration.
+
+### Extensions Included in StarterKit
+
+`StarterKit` automatically includes the following extensions:
+
+- `Document`
+- `Paragraph`
+- `Text`
+- `Heading`
+- `ListItem`
+- `TextStyle`
+- `Placeholder`
+- `Selection`
+- `GapCursor`
+- `DropCursor`
+
+Additionally, some extensions combine multiple functionalities. For example:
+
+- `SubscriptAndSuperscript` combines `Subscript` and `Superscript`. So, you don't need to import `Subscript` and `Superscript` manually if you want to use `SubscriptAndSuperscript`.
+
+## Configuring StarterKit Extensions
+
+You can configure or disable any of the included extensions when initializing the `StarterKit`:
+
+```ts title="extensions.ts"
+const starterKit = StarterKit.configure({
+  // Disable an extension
+  dropCursor: false,
+
+  // Configure an extension
+  paragraph: {
+    HTMLAttributes: {
+      class: "my-custom-paragraph",
+    },
+  },
+
+  // Rest of the configurations...
+});
+
+export const extensions = [
+  starterKit,
+  Blockquote,
+  Bold,
+  // Other extensions...
+];
+```
+
+## Create an Extension
+
+You can create your own extensions to add new capabilities and functionality or change the behaviour of the editor. [Learn More](https://tiptap.dev/docs/editor/extensions/custom-extensions/create-new#create-an-extension)
+
+```package-install
+@tiptap/core
+```
+
+```ts title="custom-extension.ts"
+import { Extension } from "@tiptap/core";
+
+const CustomExtension = Extension.create({
+  name: "custom-extension",
+
+  // Your extension configuration
+});
+```

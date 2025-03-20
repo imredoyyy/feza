@@ -1,0 +1,101 @@
+---
+title: Setup
+description: How to set up Feza in your project.
+---
+
+<Callout>
+  You can find a full example
+  [here](https://github.com/imredoyyy/feza/blob/main/apps/docs/components/editor.tsx).
+</Callout>
+
+## Basic Setup
+
+```tsx
+import { useState } from "react";
+import TiptapEditor, { type JSONContent } from "feza";
+
+const MyEditor = () => {
+  const [content, setContent] = useState<JSONContent | undefined>(undefined);
+  // The actual HTML content you will render in the webpage
+  const [htmlContent, setHtmlContent] = useState<string | undefined>(undefined);
+
+  return (
+    <TiptapEditor
+      initialContent={content}
+      editorProps={{
+        onUpdate: ({ editor }) => {
+          setContent(editor.getJSON());
+          setHtmlContent(editor.getHTML());
+        },
+      }}
+    />
+  );
+};
+
+export default MyEditor;
+```
+
+<Callout type="warn">
+  `onUpdate` runs on every content change in the editor. Consider using debounce
+  to avoid unnecessary state changes.
+
+```tsx
+import { useDebouncedCallback } from "use-debounce"; // [!code ++]
+
+import { type Editor } from "feza"; // [!code ++]
+
+// Previous code
+
+const debouncedUpdates = useDebouncedCallback((editor: Editor) => {
+  const json = editor.getJSON();
+  const html = editor.getHTML();
+
+  setContent(json);
+  setHtmlContent(html);
+}, 700);
+
+<TiptapEditor
+  initialContent={content}
+  editorProps={{
+    onUpdate: ({ editor }) => debouncedUpdates(editor),
+  }}
+  // Other props
+/>;
+```
+
+</Callout>
+
+## Configure Extensions
+
+<Callout>
+  Please refer to the [Extensions](/docs/guides/extensions) guide for more
+  information.
+</Callout>
+
+```tsx
+import {
+  StarterKit,
+  Bold,
+  Italic,
+  Heading,
+  // ...
+} from "feza";
+
+const extensions = [
+  StarterKit,
+  Bold.configure({
+    showInToolbar: false, // Hide from the toolbar
+    levels: [1, 2, 3],
+  }),
+  Italic,
+  Heading.configure({
+    showDividerAfter: true, // Add a divider after the heading button
+  }),
+  // ...
+];
+
+<TiptapEditor
+  extensions={extensions}
+  // Other props
+/>;
+```

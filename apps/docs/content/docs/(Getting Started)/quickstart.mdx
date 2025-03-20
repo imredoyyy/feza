@@ -1,0 +1,64 @@
+---
+title: Quickstart
+description: Start using the editor in few minutes.
+---
+
+<Steps>
+<Step>
+## 📦 Install the Package
+Install the package using your preferred package manager:
+
+```package-install
+feza
+```
+
+</Step>
+
+<Step>
+## 🚀 Usage
+Import the editor and extensions you want to use.
+
+```tsx
+import TiptapEditor, {
+  StarterKit,
+  Blockquote,
+  Bold,
+  // ...
+} from "feza";
+
+// Define extensions
+const extensions = [
+  StarterKit,
+  Blockquote,
+  Bold,
+  // ...
+];
+
+export const MyEditor = () => {
+  return <TiptapEditor extensions={extensions} />;
+};
+```
+
+</Step>
+
+<Step>
+## 🎨 Styling
+To ensure proper styling, import the CSS file at the top of your global styles (e.g., index.css or globals.css):
+
+```css
+@import "feza/dist/index.css";
+
+/* Or, */
+@import "../node_modules/feza/dist/index.css"; /* Relative to your CSS file */
+```
+
+<Callout type="info">
+**Important Tailwind Note:**
+
+This package does not require Tailwind CSS to be installed. However, it is built with Tailwind v4. If your project uses an older version of Tailwind (< v4), it's **recommended to upgrade to avoid compatibility issues**. Follow the [official Tailwind upgrade guide](https://tailwindcss.com/docs/upgrade-guide) for instructions.
+
+</Callout>
+
+</Step>
+
+</Steps>
