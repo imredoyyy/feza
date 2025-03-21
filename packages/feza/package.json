@@ -1,6 +1,6 @@
 {
   "name": "feza",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A WYSIWYG editor built using Tiptap, Tailwind CSS and shadcn/ui.",
   "type": "module",
   "scripts": {
