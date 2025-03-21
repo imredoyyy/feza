@@ -50,6 +50,7 @@ export const generateMetadata = async ({
       title,
       description,
       type: "website",
+      images: ["./opengraph-image.png"],
     },
   };
 };

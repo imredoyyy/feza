@@ -15,12 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
   title: {
     template: "%s | Feza",
     default: "Feza - A open-source and modern WYSIWYG editor",
   },
   description:
     "A free, open-source and modern WYSIWYG editor built on Tiptap, Tailwind CSS and shadcn/ui.",
+  openGraph: {
+    url: "./",
+  },
 };
 
 export default function RootLayout({
