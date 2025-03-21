@@ -106,7 +106,7 @@
   "author": "Redoy Saha <redoysaha3236@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/imredoyyy/feza"
+    "url": "git+https://github.com/imredoyyy/feza.git"
   },
   "keywords": [
     "tiptap",

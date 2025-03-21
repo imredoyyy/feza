@@ -1,5 +1,5 @@
 <p align="center>
-    <img src="https://github.com/imredoyyy/feza/blob/main/banner.png?raw=true" alt="Feza Banner" />
+    <img src="https://github.com/imredoyyy/feza/blob/main/banner-light.png?raw=true" alt="Feza Banner" />
 </p>
 
 <h2 align="center>Feza</h2>
